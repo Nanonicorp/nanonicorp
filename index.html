@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JLPT Junbi Booster</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 100px 0px 0px 0px;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(to bottom, #5e6b84, #2e2e38);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    section {
+      padding: 80px 20px;
+      width: 100%;
+      max-width: 1080px;
+    }
+
+    .section-title {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      font-style: italic;
+      font-size: 0.9em;
+      margin-bottom: 25px;
+      font-weight: lighter;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+      max-width: 1080px;
+      margin-bottom: 150px;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      object-position: top 60%;
+      margin-bottom: 10px;
+    }
+
+    .instagram-button {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50px;
+      color: white;
+      padding: 8px 14px;
+      margin-top: 10px;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0.85em;
+      transition: background-color 0.3s ease;
+    }
+
+    .instagram-button:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .swiper-container {
+      width: 100%;
+      padding: 20px 0;
+    }
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+    }
+
+    .footer {
+      margin-top: 100px;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.85em;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .alur-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .alur-box {
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .alur-box h4 {
+      margin: 0 0 10px;
+      font-size: 1.2em;
+      color: #fff;
+    }
+
+    .alur-box p {
+      font-size: 0.9em;
+      color: #ddd;
+    }
+
+    .alur-box strong {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #f0f0f0;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">Tentang Kami</a>
+    <a href="#testimoni">Testimoni</a>
+    <a href="#alur">Alur Belajar</a>
+    <a href="#contact">Kontak</a>
+  </nav>
+
+  <section id="home">
+    <h1 class="section-title">Selamat Datang di JLPT Junbi Booster</h1>
+    <p class="tagline">Program belajar intensif untuk lulus JLPT bersama mentor berpengalaman</p>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">Tentang Kami</h2>
+    <p class="tagline">Kami adalah tim yang terdiri dari mahasiswa dan profesional muda yang sedang menjalani internship di Jepang dan berkomitmen membantu orang lain lulus JLPT.</p>
+
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="card">
+            <img src="https://via.placeholder.com/120" class="profile-img" alt="Profile">
+            <h3>Wahyu</h3>
+            <p>Internship B2B, Nagoya</p>
+            <p>CEO</p>
+            <a class="instagram-button" href="https://instagram.com/wahyu_kritingz_76" target="_blank">Instagram</a>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="card">
+            <img src="https://via.placeholder.com/120" class="profile-img" alt="Profile">
+            <h3>Andhika</h3>
+            <p>Internship YDS, Okinawa</p>
+            <p>CTO</p>
+            <a class="instagram-button" href="https://instagram.com/andhika_pan" target="_blank">Instagram</a>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="card">
+            <img src="https://via.placeholder.com/120" class="profile-img" alt="Profile">
+            <h3>Ario</h3>
+            <p>Internship OSIP, Osaka</p>
+            <p>Content Strategist</p>
+            <a class="instagram-button" href="https://instagram.com/shibafan_yss_akmt" target="_blank">Instagram</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="testimoni">
+    <h2 class="section-title">Testimoni</h2>
+    <p class="tagline">Cerita nyata dari peserta yang sudah merasakan manfaat belajar bersama kami</p>
+  </section>
+
+  <section id="alur">
+    <h2 class="section-title">Alur Belajar</h2>
+    <p class="tagline">Gambaran sistem belajar intensif selama 4 minggu bersama kami</p>
+
+    <div class="alur-container">
+      <div class="alur-box">
+        <h4>Minggu 1</h4>
+        <p><strong>Goal:</strong> Mengenal dan menghafal kosakata dari sesi Goi JLPT tahun-tahun sebelumnya melalui teknik mining.</p>
+      </div>
+      <div class="alur-box">
+        <h4>Minggu 2</h4>
+        <p><strong>Goal:</strong> Melatih kemampuan membaca dan menambah kosakata dari sesi Dokkai JLPT asli.</p>
+      </div>
+      <div class="alur-box">
+        <h4>Minggu 3</h4>
+        <p><strong>Goal:</strong> Menguatkan hafalan dan pemahaman dengan latihan soal berulang pada sesi Goi & Dokkai.</p>
+      </div>
+      <div class="alur-box">
+        <h4>Minggu 4</h4>
+        <p><strong>Goal:</strong> Mengukur kesiapan melalui simulasi, koreksi mandiri, dan post-test menggunakan soal yang sama seperti pre-test.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Kontak</h2>
+    <p class="tagline">Hubungi kami untuk pertanyaan atau kolaborasi</p>
+    <p>Email: jlptbooster@example.com</p>
+    <p>Instagram: <a href="https://instagram.com/jlptbooster" class="instagram-button" target="_blank">@jlptbooster</a></p>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 JLPT Junbi Booster. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      breakpoints: {
+        768: {
+          slidesPerView: 2
+        },
+        1024: {
+          slidesPerView: 3
+        }
+      },
+      loop: true,
+      autoplay: {
+        delay: 3000,
+      },
+    });
+  </script>
+</body>
+
+</html>
