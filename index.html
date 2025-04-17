@@ -1,509 +1,542 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Program intensif persiapan JLPT dengan mentor berpengalaman. Belajar kosakata, dokkai, dan latihan soal untuk lulus ujian JLPT.">
-  <title>JLPT Junbi Booster</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <style>
-    :root {
-      --primary-bg: linear-gradient(to bottom, #5e6b84, #2e2e38);
-      --card-bg: rgba(255, 255, 255, 0.1);
-      --text-light: #ffffff;
-      --text-gray: rgba(255, 255, 255, 0.6);
-      --accent-color: #ff6b6b;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      padding: 100px 0 0;
-      font-family: "Segoe UI", sans-serif;
-      background: var(--primary-bg);
-      color: var(--text-light);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      min-height: 100vh;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 15px 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      backdrop-filter: blur(5px);
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1em;
-      transition: color 0.3s;
-      padding: 5px 10px;
-      border-radius: 5px;
-    }
-
-    nav a:hover {
-      color: var(--accent-color);
-    }
-
-    section {
-      padding: 80px 5%;
-      width: 100%;
-      max-width: 1080px;
-    }
-
-    .section-title {
-      font-size: 2.2em;
-      margin-bottom: 10px;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50px;
-      height: 3px;
-      background: var(--accent-color);
-    }
-
-    .tagline {
-      font-style: italic;
-      font-size: 1em;
-      margin-bottom: 25px;
-      font-weight: lighter;
-      color: var(--text-gray);
-    }
-
-    /* ===== HOME SECTION ===== */
-    #home {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-height: 60vh;
-    }
-
-    .cta-button {
-      background-color: var(--accent-color);
-      padding: 12px 25px;
-      border-radius: 50px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s;
-      display: inline-block;
-      margin-top: 20px;
-      border: 2px solid transparent;
-    }
-
-    .cta-button:hover {
-      background-color: transparent;
-      border-color: var(--accent-color);
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-    }
-
-    /* ===== CARD STYLES ===== */
-    .card-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 30px;
-      max-width: 1080px;
-      margin-bottom: 50px;
-    }
-
-    .card {
-      background-color: var(--card-bg);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-      padding: 25px;
-      width: 250px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      text-align: center;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .profile-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 4px solid white;
-      object-fit: cover;
-      object-position: top;
-      margin-bottom: 15px;
-      transition: transform 0.3s;
-    }
-
-    .card:hover .profile-img {
-      transform: scale(1.05);
-    }
-
-    .instagram-button {
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 50px;
-      color: white;
-      padding: 8px 14px;
-      margin-top: 15px;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 0.85em;
-      transition: all 0.3s ease;
-    }
-
-    .instagram-button:hover {
-      background-color: rgba(255, 255, 255, 0.25);
-      transform: translateY(-2px);
-    }
-
-    /* ===== TESTIMONI SECTION ===== */
-    .testimoni-slide {
-      background-color: var(--card-bg);
-      border-radius: 15px;
-      padding: 30px;
-      margin: 0 20px;
-      max-width: 600px;
-    }
-
-    .testimoni-text {
-      font-style: italic;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .testimoni-author {
-      font-weight: bold;
-    }
-
-    /* ===== ALUR SECTION ===== */
-    .alur-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-      margin-top: 40px;
-    }
-
-    .alur-box {
-      background-color: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
-      padding: 25px;
-      width: 250px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      transition: all 0.3s;
-    }
-
-    .alur-box:hover {
-      transform: translateY(-5px);
-      background-color: rgba(255, 255, 255, 0.12);
-    }
-
-    .alur-box h4 {
-      margin: 0 0 10px;
-      font-size: 1.2em;
-      color: var(--text-light);
-    }
-
-    .alur-box p {
-      font-size: 0.9em;
-      color: #ddd;
-      line-height: 1.5;
-    }
-
-    .alur-box strong {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 8px;
-      color: var(--accent-color);
-    }
-
-    /* ===== CONTACT SECTION ===== */
-    .contact-info {
-      margin: 20px 0;
-      line-height: 1.6;
-    }
-
-    /* ===== FOOTER ===== */
-    .footer {
-      margin-top: 50px;
-      padding: 30px 20px;
-      text-align: center;
-      font-size: 0.85em;
-      color: var(--text-gray);
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.3);
-    }
-
-    /* ===== BACK TO TOP BUTTON ===== */
-    #back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: rgba(0, 0, 0, 0.6);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-decoration: none;
-      font-size: 1.5em;
-      opacity: 0;
-      transition: all 0.3s;
-      z-index: 999;
-    }
-
-    #back-to-top.visible {
-      opacity: 1;
-    }
-
-    #back-to-top:hover {
-      background: var(--accent-color);
-      transform: translateY(-5px);
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      nav {
-        gap: 15px;
-        padding: 10px 0;
-      }
-
-      nav a {
-        font-size: 0.9em;
-      }
-
-      .section-title {
-        font-size: 1.8em;
-      }
-
-      .card {
-        width: 100%;
-        max-width: 300px;
-      }
-
-      .alur-box {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">Tentang Kami</a>
-    <a href="#testimoni">Testimoni</a>
-    <a href="#alur">Alur Belajar</a>
-    <a href="#contact">Kontak</a>
-  </nav>
-
-  <section id="home">
-    <h1 class="section-title">Selamat Datang di JLPT Junbi Booster</h1>
-    <p class="tagline">Program belajar intensif untuk lulus JLPT bersama mentor berpengalaman</p>
-    <a href="#contact" class="cta-button">Daftar Sekarang</a>
-  </section>
-
-  <section id="about">
-    <h2 class="section-title">Tentang Kami</h2>
-    <p class="tagline">Kami adalah tim yang terdiri dari mahasiswa dan profesional muda yang sedang menjalani internship di Jepang dan berkomitmen membantu orang lain lulus JLPT.</p>
-
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-
-        <div class="swiper-slide">
-          <div class="card">
-            <img src="https://via.placeholder.com/120" class="profile-img" alt="Foto Wahyu - CEO JLPT Junbi Booster">
-            <h3>Wahyu</h3>
-            <p>Internship B2B, Nagoya</p>
-            <p>CEO</p>
-            <a class="instagram-button" href="https://instagram.com/wahyu_kritingz_76" target="_blank">Instagram</a>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="card">
-            <img src="https://via.placeholder.com/120" class="profile-img" alt="Foto Andhika - CTO JLPT Junbi Booster">
-            <h3>Andhika</h3>
-            <p>Internship YDS, Okinawa</p>
-            <p>CTO</p>
-            <a class="instagram-button" href="https://instagram.com/andhika_pan" target="_blank">Instagram</a>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="card">
-            <img src="https://via.placeholder.com/120" class="profile-img" alt="Foto Ario - Content Strategist JLPT Junbi Booster">
-            <h3>Ario</h3>
-            <p>Internship OSIP, Osaka</p>
-            <p>Content Strategist</p>
-            <a class="instagram-button" href="https://instagram.com/shibafan_yss_akmt" target="_blank">Instagram</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="testimoni">
-    <h2 class="section-title">Testimoni</h2>
-    <p class="tagline">Cerita nyata dari peserta yang sudah merasakan manfaat belajar bersama kami</p>
-
-    <div class="swiper-container testimoni-swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="testimoni-slide">
-            <p class="testimoni-text">"Setelah mengikuti program ini, skor JLPT N3 saya naik 40 poin! Metode mining kosakatanya sangat membantu."</p>
-            <p class="testimoni-author">- Rina, N3 Pass (2024)</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="testimoni-slide">
-            <p class="testimoni-text">"Mentornya sabar dan materi dokkai dijelaskan dengan sangat jelas. Recommended banget!"</p>
-            <p class="testimoni-author">- Adi, N2 Pass (2024)</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="testimoni-slide">
-            <p class="testimoni-text">"Latihan soal berulang di minggu ke-3 bikin saya lebih percaya diri saat ujian sungguhan."</p>
-            <p class="testimoni-author">- Siti, N4 Pass (2023)</p>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </section>
-
-  <section id="alur">
-    <h2 class="section-title">Alur Belajar</h2>
-    <p class="tagline">Gambaran sistem belajar intensif selama 4 minggu bersama kami</p>
-
-    <div class="alur-container">
-      <div class="alur-box">
-        <h4>Minggu 1</h4>
-        <p><strong>Goal:</strong> Mengenal dan menghafal kosakata dari sesi Goi JLPT tahun-tahun sebelumnya melalui teknik mining.</p>
-        <p><strong>Materi:</strong> 100+ kosakata N3/N2 + latihan harian.</p>
-      </div>
-      <div class="alur-box">
-        <h4>Minggu 2</h4>
-        <p><strong>Goal:</strong> Melatih kemampuan membaca dan menambah kosakata dari sesi Dokkai JLPT asli.</p>
-        <p><strong>Materi:</strong> 5 teks dokkai + analisis pola.</p>
-      </div>
-      <div class="alur-box">
-        <h4>Minggu 3</h4>
-        <p><strong>Goal:</strong> Menguatkan hafalan dan pemahaman dengan latihan soal berulang pada sesi Goi & Dokkai.</p>
-        <p><strong>Materi:</strong> Simulasi mini + pembahasan.</p>
-      </div>
-      <div class="alur-box">
-        <h4>Minggu 4</h4>
-        <p><strong>Goal:</strong> Mengukur kesiapan melalui simulasi, koreksi mandiri, dan post-test menggunakan soal yang sama seperti pre-test.</p>
-        <p><strong>Materi:</strong> Full simulasi JLPT + tips akhir.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2 class="section-title">Kontak</h2>
-    <p class="tagline">Hubungi kami untuk pertanyaan atau kolaborasi</p>
-    
-    <div class="contact-info">
-      <p>Email: <a href="mailto:jlptbooster@example.com" style="color: var(--accent-color);">jlptbooster@example.com</a></p>
-      <p>WhatsApp: <a href="https://wa.me/6281234567890" style="color: var(--accent-color);">+62 812-3456-7890</a></p>
-      <p>Instagram: <a href="https://instagram.com/jlptbooster" class="instagram-button" target="_blank" style="margin-left: 10px;">@jlptbooster</a></p>
-    </div>
-
-    <form class="contact-form" style="max-width: 500px; margin: 30px auto;">
-      <input type="text" placeholder="Nama Anda" style="width: 100%; padding: 12px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc;">
-      <input type="email" placeholder="Email" style="width: 100%; padding: 12px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc;">
-      <textarea placeholder="Pesan Anda" style="width: 100%; padding: 12px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; height: 120px;"></textarea>
-      <button type="submit" class="cta-button" style="width: 100%;">Kirim Pesan</button>
-    </form>
-  </section>
-
-  <footer class="footer">
-    &copy; 2025 JLPT Junbi Booster. All rights reserved.
-  </footer>
-
-  <a href="#home" id="back-to-top" title="Kembali ke atas">↑</a>
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script>
-    // Initialize Team Swiper
-    const teamSwiper = new Swiper('.swiper-container', {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      breakpoints: {
-        768: {
-          slidesPerView: 2
-        },
-        1024: {
-          slidesPerView: 3
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanoni - Belajar Bahasa Jepang dengan Metode Bayi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #E74C3C;
+            --secondary: #3498DB;
+            --accent: #F1C40F;
+            --light: #F5F5F5;
+            --dark: #2C3E50;
         }
-      },
-      loop: true,
-      autoplay: {
-        delay: 3000,
-      },
-    });
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(52, 152, 219, 0.1) 100%);
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--dark);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            color: var(--primary);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 50px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        /* Classes Section */
+        .classes {
+            padding: 80px 0;
+        }
+        
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .class-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .class-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .class-img {
+            height: 200px;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .class-content {
+            padding: 20px;
+        }
+        
+        .class-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .class-content p {
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-img {
+            background-color: var(--light);
+            height: 400px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 24px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .social-icons {
+            margin-bottom: 30px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Nano<span>ni</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#classes">Kelas</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    // Initialize Testimoni Swiper
-    const testimoniSwiper = new Swiper('.testimoni-swiper', {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container fade-in">
+            <h1>Belajar Bahasa Jepang dengan Metode Bayi</h1>
+            <p>Pelajari bahasa Jepang secara alami seperti bayi belajar bahasa pertama mereka. Siapkan diri untuk JLPT dengan cara yang menyenangkan!</p>
+            <a href="#classes" class="btn">Lihat Kelas Kami</a>
+        </div>
+    </section>
 
-    // Back to Top Button
-    const backToTopButton = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        backToTopButton.classList.add('visible');
-      } else {
-        backToTopButton.classList.remove('visible');
-      }
-    });
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Kenapa Memilih Nanoni?</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3>Metode Bayi</h3>
+                    <p>Belajar secara alami tanpa menghafal, fokus pada pemahaman intuitif seperti bayi.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>JLPT Focus</h3>
+                    <p>Materi dirancang khusus untuk persiapan ujian JLPT N5 sampai N3.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Komunitas Aktif</h3>
+                    <p>Bergabung dengan grup kaiwa untuk praktik langsung dengan sesama pembelajar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    // Smooth scrolling for all links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
+    <!-- Classes Section -->
+    <section id="classes" class="classes">
+        <div class="container">
+            <h2 class="section-title">Kelas Kami</h2>
+            <div class="classes-grid">
+                <div class="class-card fade-in">
+                    <div class="class-img">JLPT Junbi Booster</div>
+                    <div class="class-content">
+                        <h3>JLPT Junbi Booster</h3>
+                        <p>Kursus intensif 4 minggu untuk mempersiapkan JLPT dengan metode unik kami.</p>
+                        <div class="price">Rp 499.000</div>
+                        <a href="#" class="btn">Daftar Sekarang</a>
+                    </div>
+                </div>
+                <div class="class-card fade-in">
+                    <div class="class-img">Benkyoukai Reguler</div>
+                    <div class="class-content">
+                        <h3>Kelas Reguler Benkyoukai</h3>
+                        <p>Kelas rutin untuk level N5-N3 dengan pendekatan komprehensif.</p>
+                        <div class="price">Rp 299.000/bulan</div>
+                        <a href="#" class="btn">Daftar Sekarang</a>
+                    </div>
+                </div>
+                <div class="class-card fade-in">
+                    <div class="class-img">Grup Kaiwa</div>
+                    <div class="class-content">
+                        <h3>Grup Kaiwa</h3>
+                        <p>Sesi praktik percakapan terbuka dengan tutor native speaker.</p>
+                        <div class="price">Rp 99.000/sesi</div>
+                        <a href="#" class="btn">Daftar Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>Tentang Kami</h2>
+                    <p>Nanoni adalah platform belajar bahasa Jepang yang mengadaptasi cara alami bayi mempelajari bahasa pertama mereka. Kami percaya bahwa belajar bahasa seharusnya menyenangkan dan tanpa stres.</p>
+                    <p>Dengan tim tutor berpengalaman dan metode unik, kami membantu ratusan siswa mempersiapkan JLPT sekaligus mengembangkan kemampuan komunikasi sehari-hari.</p>
+                    <a href="#contact" class="btn">Hubungi Kami</a>
+                </div>
+                <div class="about-img fade-in">
+                    [Foto Tim/Tutor]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-form fade-in">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nama</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo" style="color: white; margin-bottom: 20px;">Nano<span style="color: var(--accent);">ni</span></div>
+            <ul class="footer-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#classes">Kelas</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">© 2023 Nanoni. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation trigger
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                fadeInObserver.observe(el);
+            });
         });
-      });
-    });
-  </script>
+    </script>
 </body>
-
 </html>
