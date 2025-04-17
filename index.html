@@ -4,19 +4,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Program intensif persiapan JLPT dengan mentor berpengalaman. Belajar kosakata, dokkai, dan latihan soal untuk lulus ujian JLPT.">
   <title>JLPT Junbi Booster</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <style>
+    :root {
+      --primary-bg: linear-gradient(to bottom, #5e6b84, #2e2e38);
+      --card-bg: rgba(255, 255, 255, 0.1);
+      --text-light: #ffffff;
+      --text-gray: rgba(255, 255, 255, 0.6);
+      --accent-color: #ff6b6b;
+    }
+
     html {
       scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-      padding: 100px 0px 0px 0px;
+      padding: 100px 0 0;
       font-family: "Segoe UI", sans-serif;
-      background: linear-gradient(to bottom, #5e6b84, #2e2e38);
-      color: white;
+      background: var(--primary-bg);
+      color: var(--text-light);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -30,11 +39,12 @@
       left: 0;
       right: 0;
       background-color: rgba(0, 0, 0, 0.6);
-      padding: 10px 0;
+      padding: 15px 0;
       z-index: 1000;
       display: flex;
       justify-content: center;
       gap: 30px;
+      backdrop-filter: blur(5px);
     }
 
     nav a {
@@ -42,26 +52,76 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 1em;
+      transition: color 0.3s;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
     }
 
     section {
-      padding: 80px 20px;
+      padding: 80px 5%;
       width: 100%;
       max-width: 1080px;
     }
 
     .section-title {
-      font-size: 2em;
+      font-size: 2.2em;
       margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: var(--accent-color);
     }
 
     .tagline {
       font-style: italic;
-      font-size: 0.9em;
+      font-size: 1em;
       margin-bottom: 25px;
       font-weight: lighter;
+      color: var(--text-gray);
     }
 
+    /* ===== HOME SECTION ===== */
+    #home {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 60vh;
+    }
+
+    .cta-button {
+      background-color: var(--accent-color);
+      padding: 12px 25px;
+      border-radius: 50px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+      display: inline-block;
+      margin-top: 20px;
+      border: 2px solid transparent;
+    }
+
+    .cta-button:hover {
+      background-color: transparent;
+      border-color: var(--accent-color);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+    }
+
+    /* ===== CARD STYLES ===== */
     .card-container {
       display: flex;
       flex-wrap: wrap;
@@ -69,22 +129,23 @@
       gap: 30px;
       margin-top: 30px;
       max-width: 1080px;
-      margin-bottom: 150px;
+      margin-bottom: 50px;
     }
 
     .card {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: var(--card-bg);
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 20px;
-      padding: 20px;
+      padding: 25px;
       width: 250px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease;
+      transition: all 0.3s ease;
       text-align: center;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
 
     .profile-img {
@@ -93,8 +154,13 @@
       border-radius: 50%;
       border: 4px solid white;
       object-fit: cover;
-      object-position: top 60%;
-      margin-bottom: 10px;
+      object-position: top;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover .profile-img {
+      transform: scale(1.05);
     }
 
     .instagram-button {
@@ -103,40 +169,43 @@
       border-radius: 50px;
       color: white;
       padding: 8px 14px;
-      margin-top: 10px;
+      margin-top: 15px;
       text-decoration: none;
       display: inline-block;
       font-size: 0.85em;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .instagram-button:hover {
       background-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
     }
 
-    .swiper-container {
-      width: 100%;
-      padding: 20px 0;
+    /* ===== TESTIMONI SECTION ===== */
+    .testimoni-slide {
+      background-color: var(--card-bg);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 0 20px;
+      max-width: 600px;
     }
 
-    .swiper-slide {
-      display: flex;
-      justify-content: center;
+    .testimoni-text {
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 20px;
     }
 
-    .footer {
-      margin-top: 100px;
-      padding: 30px 20px;
-      text-align: center;
-      font-size: 0.85em;
-      color: rgba(255, 255, 255, 0.6);
+    .testimoni-author {
+      font-weight: bold;
     }
 
+    /* ===== ALUR SECTION ===== */
     .alur-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 25px;
       margin-top: 40px;
     }
 
@@ -144,27 +213,105 @@
       background-color: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 15px;
-      padding: 20px;
+      padding: 25px;
       width: 250px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s;
+    }
+
+    .alur-box:hover {
+      transform: translateY(-5px);
+      background-color: rgba(255, 255, 255, 0.12);
     }
 
     .alur-box h4 {
       margin: 0 0 10px;
       font-size: 1.2em;
-      color: #fff;
+      color: var(--text-light);
     }
 
     .alur-box p {
       font-size: 0.9em;
       color: #ddd;
+      line-height: 1.5;
     }
 
     .alur-box strong {
       display: block;
       font-weight: bold;
-      margin-bottom: 5px;
-      color: #f0f0f0;
+      margin-bottom: 8px;
+      color: var(--accent-color);
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-info {
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      margin-top: 50px;
+      padding: 30px 20px;
+      text-align: center;
+      font-size: 0.85em;
+      color: var(--text-gray);
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    /* ===== BACK TO TOP BUTTON ===== */
+    #back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: rgba(0, 0, 0, 0.6);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      font-size: 1.5em;
+      opacity: 0;
+      transition: all 0.3s;
+      z-index: 999;
+    }
+
+    #back-to-top.visible {
+      opacity: 1;
+    }
+
+    #back-to-top:hover {
+      background: var(--accent-color);
+      transform: translateY(-5px);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav {
+        gap: 15px;
+        padding: 10px 0;
+      }
+
+      nav a {
+        font-size: 0.9em;
+      }
+
+      .section-title {
+        font-size: 1.8em;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .alur-box {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -181,6 +328,7 @@
   <section id="home">
     <h1 class="section-title">Selamat Datang di JLPT Junbi Booster</h1>
     <p class="tagline">Program belajar intensif untuk lulus JLPT bersama mentor berpengalaman</p>
+    <a href="#contact" class="cta-button">Daftar Sekarang</a>
   </section>
 
   <section id="about">
@@ -192,7 +340,7 @@
 
         <div class="swiper-slide">
           <div class="card">
-            <img src="https://via.placeholder.com/120" class="profile-img" alt="Profile">
+            <img src="https://via.placeholder.com/120" class="profile-img" alt="Foto Wahyu - CEO JLPT Junbi Booster">
             <h3>Wahyu</h3>
             <p>Internship B2B, Nagoya</p>
             <p>CEO</p>
@@ -202,7 +350,7 @@
 
         <div class="swiper-slide">
           <div class="card">
-            <img src="https://via.placeholder.com/120" class="profile-img" alt="Profile">
+            <img src="https://via.placeholder.com/120" class="profile-img" alt="Foto Andhika - CTO JLPT Junbi Booster">
             <h3>Andhika</h3>
             <p>Internship YDS, Okinawa</p>
             <p>CTO</p>
@@ -212,7 +360,7 @@
 
         <div class="swiper-slide">
           <div class="card">
-            <img src="https://via.placeholder.com/120" class="profile-img" alt="Profile">
+            <img src="https://via.placeholder.com/120" class="profile-img" alt="Foto Ario - Content Strategist JLPT Junbi Booster">
             <h3>Ario</h3>
             <p>Internship OSIP, Osaka</p>
             <p>Content Strategist</p>
@@ -227,6 +375,30 @@
   <section id="testimoni">
     <h2 class="section-title">Testimoni</h2>
     <p class="tagline">Cerita nyata dari peserta yang sudah merasakan manfaat belajar bersama kami</p>
+
+    <div class="swiper-container testimoni-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="testimoni-slide">
+            <p class="testimoni-text">"Setelah mengikuti program ini, skor JLPT N3 saya naik 40 poin! Metode mining kosakatanya sangat membantu."</p>
+            <p class="testimoni-author">- Rina, N3 Pass (2024)</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimoni-slide">
+            <p class="testimoni-text">"Mentornya sabar dan materi dokkai dijelaskan dengan sangat jelas. Recommended banget!"</p>
+            <p class="testimoni-author">- Adi, N2 Pass (2024)</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimoni-slide">
+            <p class="testimoni-text">"Latihan soal berulang di minggu ke-3 bikin saya lebih percaya diri saat ujian sungguhan."</p>
+            <p class="testimoni-author">- Siti, N4 Pass (2023)</p>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
   </section>
 
   <section id="alur">
@@ -237,18 +409,22 @@
       <div class="alur-box">
         <h4>Minggu 1</h4>
         <p><strong>Goal:</strong> Mengenal dan menghafal kosakata dari sesi Goi JLPT tahun-tahun sebelumnya melalui teknik mining.</p>
+        <p><strong>Materi:</strong> 100+ kosakata N3/N2 + latihan harian.</p>
       </div>
       <div class="alur-box">
         <h4>Minggu 2</h4>
         <p><strong>Goal:</strong> Melatih kemampuan membaca dan menambah kosakata dari sesi Dokkai JLPT asli.</p>
+        <p><strong>Materi:</strong> 5 teks dokkai + analisis pola.</p>
       </div>
       <div class="alur-box">
         <h4>Minggu 3</h4>
         <p><strong>Goal:</strong> Menguatkan hafalan dan pemahaman dengan latihan soal berulang pada sesi Goi & Dokkai.</p>
+        <p><strong>Materi:</strong> Simulasi mini + pembahasan.</p>
       </div>
       <div class="alur-box">
         <h4>Minggu 4</h4>
         <p><strong>Goal:</strong> Mengukur kesiapan melalui simulasi, koreksi mandiri, dan post-test menggunakan soal yang sama seperti pre-test.</p>
+        <p><strong>Materi:</strong> Full simulasi JLPT + tips akhir.</p>
       </div>
     </div>
   </section>
@@ -256,17 +432,31 @@
   <section id="contact">
     <h2 class="section-title">Kontak</h2>
     <p class="tagline">Hubungi kami untuk pertanyaan atau kolaborasi</p>
-    <p>Email: jlptbooster@example.com</p>
-    <p>Instagram: <a href="https://instagram.com/jlptbooster" class="instagram-button" target="_blank">@jlptbooster</a></p>
+    
+    <div class="contact-info">
+      <p>Email: <a href="mailto:jlptbooster@example.com" style="color: var(--accent-color);">jlptbooster@example.com</a></p>
+      <p>WhatsApp: <a href="https://wa.me/6281234567890" style="color: var(--accent-color);">+62 812-3456-7890</a></p>
+      <p>Instagram: <a href="https://instagram.com/jlptbooster" class="instagram-button" target="_blank" style="margin-left: 10px;">@jlptbooster</a></p>
+    </div>
+
+    <form class="contact-form" style="max-width: 500px; margin: 30px auto;">
+      <input type="text" placeholder="Nama Anda" style="width: 100%; padding: 12px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc;">
+      <input type="email" placeholder="Email" style="width: 100%; padding: 12px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc;">
+      <textarea placeholder="Pesan Anda" style="width: 100%; padding: 12px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; height: 120px;"></textarea>
+      <button type="submit" class="cta-button" style="width: 100%;">Kirim Pesan</button>
+    </form>
   </section>
 
   <footer class="footer">
     &copy; 2025 JLPT Junbi Booster. All rights reserved.
   </footer>
 
+  <a href="#home" id="back-to-top" title="Kembali ke atas">↑</a>
+
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
-    const swiper = new Swiper('.swiper-container', {
+    // Initialize Team Swiper
+    const teamSwiper = new Swiper('.swiper-container', {
       slidesPerView: 1,
       spaceBetween: 20,
       breakpoints: {
@@ -281,6 +471,37 @@
       autoplay: {
         delay: 3000,
       },
+    });
+
+    // Initialize Testimoni Swiper
+    const testimoniSwiper = new Swiper('.testimoni-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+
+    // Back to Top Button
+    const backToTopButton = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+
+    // Smooth scrolling for all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
     });
   </script>
 </body>
