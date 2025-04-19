@@ -5,7 +5,373 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nanoni - Belajar Bahasa Jepang dengan Metode Bayi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #E74C3C;
+            --secondary: #3498DB;
+            --accent: #F1C40F;
+            --light: #F5F5F5;
+            --dark: #2C3E50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        html {
+    scroll-behavior: smooth;
+}
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        .class-img {
+    width: 100%;
+    height: 200px; /* Sesuaikan tinggi sesuai kebutuhan */
+    object-fit: cover; /* Untuk memastikan gambar terisi dengan baik */
+    border-radius: 8px 8px 0 0; /* Jika ingin sudut melengkung */
+}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(52, 152, 219, 0.1) 100%);
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--dark);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            color: var(--primary);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 50px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        /* Classes Section */
+        .classes {
+            padding: 80px 0;
+        }
+        
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .class-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .class-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .class-img {
+            height: 200px;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .class-content {
+            padding: 20px;
+        }
+        
+        .class-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .class-content p {
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-img {
+            background-color: var(--light);
+            height: 400px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 24px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .social-icons {
+            margin-bottom: 30px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -17,6 +383,7 @@
                     <li><a href="#home">Beranda</a></li>
                     <li><a href="#about">Tentang Kami</a></li>
                     <li><a href="#classes">Kelas</a></li>
+<!--                     <li><a href="#contact">Kontak</a></li> -->
                 </ul>
             </nav>
         </div>
@@ -67,6 +434,7 @@
             <h2 class="section-title">Kelas Nanoni</h2>
             <div class="classes-grid">
                 <div class="class-card fade-in">
+<!--                     <div class="class-img">JLPT Junbi Booster</div> -->
                     <img src="https://github.com/Nanonicorp/nanonicorp/blob/main/Poster%20JLPT%20N3%20(1).png?raw=true" alt="JLPT Junbi Booster" class="class-img">
                     <div class="class-content">
                         <h3>JLPT Junbi Booster</h3>
@@ -81,16 +449,16 @@
                         <h3>Kelas Reguler Benkyoukai</h3>
                         <p>Kelas rutin untuk level N5-N3 dengan pendekatan komprehensif.</p>
                         <div class="price">Rp 299.000/bulan</div>
-                        <a href="#" class="btn">Belum Dibuka</a>
+                        <a href="#" class="btn">Daftar Sekarang</a>
                     </div>
                 </div>
                 <div class="class-card fade-in">
                     <div class="class-img">Grup Kaiwa</div>
                     <div class="class-content">
                         <h3>Grup Kaiwa</h3>
-                        <p>Ngobrol bareng senpai tachi yang sudah lancar kaiwa. Di grup WhatsApp</p>
+                        <p>Ngobrol bareng senpai tachi yang sudah lancar kaiwa</p>
                         <div class="price">Gratis</div>
-                        <a href="https://chat.whatsapp.com/GSCeopCFvgo7aw5stQ9x3Y" class="btn">Bergabung</a>
+                        <a href="#" class="btn">Bergabung Sekarang</a>
                     </div>
                 </div>
             </div>
@@ -105,6 +473,7 @@
                     <h2>Tentang Nanoni</h2>
                     <p>Nanoni adalah platform belajar bahasa Jepang yang mengadaptasi cara bayi mempelajari bahasa pertama mereka. Bagaimana mereka selalu dikenalkan dengan kata-kata baru setiap hari.</p>
                     <p>Dengan tim tutor berpengalaman dan metode unik, kami membantu siswa mempersiapkan JLPT sekaligus mengembangkan kemampuan komunikasi sehari-hari.</p>
+<!--                     <a href="#contact" class="btn">Hubungi Kami</a> -->
                 </div>
                 <div class="about-img fade-in">
                     [Foto Tim/Tutor]
@@ -112,6 +481,30 @@
             </div>
         </div>
     </section>
+
+    <!-- Contact Section 
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-form fade-in">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nama</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section> -->
 
     <!-- Footer -->
     <footer>
@@ -121,6 +514,7 @@
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#about">Tentang</a></li>
                 <li><a href="#classes">Kelas</a></li>
+<!--                 <li><a href="#contact">Kontak</a></li> -->
             </ul>
             <div class="social-icons">
                 <a href="https://www.instagram.com/nanoni.id/"><i class="fab fa-instagram"></i></a>
@@ -153,42 +547,42 @@
             });
         });
 
-        // Smooth scroll untuk navigasi
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+    // Smooth scroll untuk navigasi
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80, // Sesuaikan dengan tinggi header
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Animasi fade-in
+    document.addEventListener('DOMContentLoaded', function() {
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            fadeInObserver.observe(el);
         });
-
-        // Animasi fade-in
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
-            
-            const fadeInObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            fadeElements.forEach(el => {
-                el.style.opacity = 0;
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-                fadeInObserver.observe(el);
-            });
-        });
+    });
     </script>
 </body>
 </html>
