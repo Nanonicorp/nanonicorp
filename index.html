@@ -8,129 +8,187 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <nav class="container">
-            <div class="logo">Nanoni<span>Corp</span></div>
-            <ul class="nav-links">
-                <li><a href="#hero">Beranda</a></li>
-                <li><a href="#features">Fitur</a></li>
-                <li><a href="#classes">Kelas</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
-            <a href="#contact" class="btn">Daftar Sekarang</a>
-        </nav>
+        <div class="container">
+            <nav>
+                <div class="logo">Nano<span>ni</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#classes">Kelas</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section class="hero" id="hero">
-        <div class="container">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container fade-in">
             <h1>Belajar Bahasa Jepang dengan Metode Bayi</h1>
-            <p>Mulai dari nol tanpa stres – cocok untuk pemula yang ingin cepat paham percakapan sehari-hari!</p>
+            <p>Pelajari bahasa Jepang seperti bayi belajar bahasa pertama mereka, dengan alur belajar yang tersutruktur dan dibimbing mentor yang sudah berpengalaman!</p>
+            <a href="#classes" class="btn">Lihat Kelas Nanoni</a>
         </div>
     </section>
 
-    <section class="features" id="features">
+    <!-- Features Section -->
+    <section class="features">
         <div class="container">
-            <h2 class="section-title">Fitur Utama</h2>
+            <h2 class="section-title">Kenapa Memilih Nanoni?</h2>
             <div class="features-grid">
-                <!-- Card Fitur -->
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3>Metode Bayi</h3>
+                    <p>Fokus menambah kosa kata, seperti bayi yang tidak pernah belajar tata bahasa. Namun akhirnya bisa berbicara.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>JLPT Focus</h3>
+                    <p>Materi dirancang khusus untuk persiapan ujian JLPT N5 sampai N3. Mengadaptasi pengalaman mentor yang telah lulus JLPT dengan nilai memuaskan.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Komunitas Aktif</h3>
+                    <p>Bergabung dengan grup WhatsApp untuk praktik langsung dengan sesama pembelajar maupun yang sudah lancar kaiwa.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="classes" id="classes">
+    <!-- Classes Section -->
+    <section id="classes" class="classes">
         <div class="container">
-            <h2 class="section-title">JLPT Junbi Booster</h2>
-            <p class="text-center">💬 “Lulus JLPT Bukan Lagi Mimpi – Yuk Boost Bareng Kami!”<br>📅 Pendaftaran dibuka sampai 20 April!<br>📌 Untuk persiapan JLPT N5 – N3 Juli 2025</p>
+            <h2 class="section-title">Kelas Nanoni</h2>
             <div class="classes-grid">
-                <div class="class-card">
-                    <div class="class-img">JLPT N5</div>
+                <div class="class-card fade-in">
+                    <img src="https://github.com/Nanonicorp/nanonicorp/blob/main/Poster%20JLPT%20N3%20(1).png?raw=true" alt="JLPT Junbi Booster" class="class-img">
                     <div class="class-content">
-                        <h3>N5: Rp150.000</h3>
-                        <p>✅ Materi lengkap & terstruktur<br>
-                        ✅ Garansi uang kembali jika tidak lulus JLPT<br>
-                        ✅ Website eksklusif untuk hafalan kosakata<br>
-                        ✅ Bimbingan mentor bersertifikat<br>
-                        ✅ Latihan soal & Zoom bareng mentor<br>
-                        📌 Alur 4 minggu: Hari 1–4 soal & kosakata, Hari 5–6 penguatan, Hari 7 Zoom</p>
+                        <h3>JLPT Junbi Booster</h3>
+                        <p>Kursus intensif 4 minggu, untuk mempersiapkan JLPT dengan metode unik kami.</p>
+                        <div class="price">Rp 150.000 - Rp 350.000</div>
+                        <a href="https://nanonicorp.github.io/JLPT-Junbi-Booster/" class="btn">Daftar Sekarang</a>
                     </div>
                 </div>
-                <div class="class-card">
-                    <div class="class-img">JLPT N4</div>
+                <div class="class-card fade-in">
+                    <div class="class-img">Benkyoukai Reguler</div>
                     <div class="class-content">
-                        <h3>N4: Rp200.000</h3>
-                        <p>✅ Materi lengkap & terstruktur<br>
-                        ✅ Garansi uang kembali jika tidak lulus JLPT<br>
-                        ✅ Mentor bantu jelaskan soal di grup WA<br>
-                        ✅ Website ringan & fokus hafalan<br>
-                        ✅ Zoom bareng mentor setiap minggu</p>
+                        <h3>Kelas Reguler Benkyoukai</h3>
+                        <p>Kelas rutin untuk level N5-N3 dengan pendekatan komprehensif.</p>
+                        <div class="price">Rp 299.000/bulan</div>
+                        <a href="#" class="btn">Belum Dibuka</a>
                     </div>
                 </div>
-                <div class="class-card">
-                    <div class="class-img">JLPT N3</div>
+                <div class="class-card fade-in">
+                    <div class="class-img">Grup Kaiwa</div>
                     <div class="class-content">
-                        <h3>N3: Rp350.000</h3>
-                        <p>✅ Dibimbing mentor yang sudah lulus JLPT N3 dengan nilai AA<br>
-                        ✅ Latihan soal via Google Form + pembahasan<br>
-                        ✅ Sistem mingguan: mining, hafalan, evaluasi Zoom<br>
-                        📌 Daftar N3 hanya jika kamu sudah setara N4</p>
+                        <h3>Grup Kaiwa</h3>
+                        <p>Ngobrol bareng senpai tachi yang sudah lancar kaiwa. Di grup WhatsApp</p>
+                        <div class="price">Gratis</div>
+                        <a href="https://chat.whatsapp.com/GSCeopCFvgo7aw5stQ9x3Y" class="btn">Bergabung</a>
                     </div>
                 </div>
-            </div>
-            <div class="text-center" style="margin-top: 30px;">
-                <a href="https://nanonicorp.github.io/nanonicorp/" class="btn">Daftar Sekarang</a><br>
-                <p style="margin-top: 10px;">📱 Hubungi via WhatsApp: <a href="https://wa.me/6285941855177">085941855177</a></p>
             </div>
         </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="container about-content">
-            <div class="about-text">
-                <h2>Tentang Kami</h2>
-                <p>NanoniCorp adalah platform belajar bahasa Jepang dengan pendekatan natural layaknya bayi belajar bahasa ibu mereka.</p>
-            </div>
-            <div class="about-img">[Ilustrasi Tentang Kami]</div>
-        </div>
-    </section>
-
-    <section class="contact" id="contact">
+    <!-- About Section -->
+    <section id="about" class="about">
         <div class="container">
-            <div class="contact-form">
-                <h2>Kontak Kami</h2>
-                <form>
-                    <div class="form-group">
-                        <label for="name">Nama</label>
-                        <input type="text" id="name" name="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Pesan</label>
-                        <textarea id="message" name="message"></textarea>
-                    </div>
-                    <button type="submit" class="btn">Kirim</button>
-                </form>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>Tentang Nanoni</h2>
+                    <p>Nanoni adalah platform belajar bahasa Jepang yang mengadaptasi cara bayi mempelajari bahasa pertama mereka. Bagaimana mereka selalu dikenalkan dengan kata-kata baru setiap hari.</p>
+                    <p>Dengan tim tutor berpengalaman dan metode unik, kami membantu siswa mempersiapkan JLPT sekaligus mengembangkan kemampuan komunikasi sehari-hari.</p>
+                </div>
+                <div class="about-img fade-in">
+                    [Foto Tim/Tutor]
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <ul class="footer-links">
-            <li><a href="#hero">Beranda</a></li>
-            <li><a href="#features">Fitur</a></li>
-            <li><a href="#classes">Kelas</a></li>
-            <li><a href="#about">Tentang</a></li>
-            <li><a href="#contact">Kontak</a></li>
-        </ul>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
+        <div class="container">
+            <div class="logo" style="color: white; margin-bottom: 20px;">Nano<span style="color: var(--accent);">ni</span></div>
+            <ul class="footer-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#classes">Kelas</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/nanoni.id/"><i class="fab fa-instagram"></i></a>
+                <a href="https://chat.whatsapp.com/GSCeopCFvgo7aw5stQ9x3Y"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.youtube.com/@desukakundesuka"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">© 2023 Nanoni. All rights reserved.</p>
         </div>
-        <p class="copyright">&copy; 2025 NanoniCorp. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Simple animation trigger
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                fadeInObserver.observe(el);
+            });
+        });
+
+        // Smooth scroll untuk navigasi
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animasi fade-in
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                fadeInObserver.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
