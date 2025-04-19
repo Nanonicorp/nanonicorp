@@ -5,584 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nanoni - Belajar Bahasa Jepang dengan Metode Bayi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Global Styles */
-        :root {
-            --primary: #E74C3C;
-            --secondary: #3498DB;
-            --accent: #F1C40F;
-            --light: #F5F5F5;
-            --dark: #2C3E50;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        html {
-    scroll-behavior: smooth;
-}
-        
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 0;
-        }
-        
-        /* Header & Navigation */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-        }
-        .class-img {
-    width: 100%;
-    height: 200px; /* Sesuaikan tinggi sesuai kebutuhan */
-    object-fit: cover; /* Untuk memastikan gambar terisi dengan baik */
-    border-radius: 8px 8px 0 0; /* Jika ingin sudut melengkung */
-}
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--primary);
-        }
-        
-        .logo span {
-            color: var(--secondary);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: #c0392b;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 150px 0 80px;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(52, 152, 219, 0.1) 100%);
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: var(--dark);
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background-color: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 36px;
-            color: var(--primary);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background-color: var(--light);
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon {
-            font-size: 50px;
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        /* Classes Section */
-        .classes {
-            padding: 80px 0;
-        }
-        
-        .classes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .class-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .class-card:hover {
-            transform: scale(1.05);
-        }
-        
-        .class-img {
-            height: 200px;
-            background-color: var(--secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        
-        .class-content {
-            padding: 20px;
-        }
-        
-        .class-content h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-        
-        .class-content p {
-            margin-bottom: 15px;
-        }
-        
-        .price {
-            font-size: 20px;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-        
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background-color: white;
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .about-text h2 {
-            font-size: 36px;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .about-img {
-            background-color: var(--light);
-            height: 400px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dark);
-            font-size: 24px;
-        }
-        
-        /* Contact Section */
-        .contact {
-            padding: 80px 0;
-        }
-        
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        
-        .form-group textarea {
-            height: 150px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 50px 0 20px;
-            text-align: center;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin-bottom: 30px;
-        }
-        
-        .footer-links li {
-            margin: 0 15px;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-        
-        .social-icons {
-            margin-bottom: 30px;
-        }
-        
-        .social-icons a {
-            color: white;
-            font-size: 24px;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-        
-        .social-icons a:hover {
-            color: var(--accent);
-        }
-        
-        .copyright {
-            font-size: 14px;
-            opacity: 0.8;
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .fade-in {
-            animation: fadeIn 1s ease-out forwards;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .about-img {
-                height: 300px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Nano<span>ni</span></div>
-                <ul class="nav-links">
-                    <li><a href="#home">Beranda</a></li>
-                    <li><a href="#about">Tentang Kami</a></li>
-                    <li><a href="#classes">Kelas</a></li>
-<!--                     <li><a href="#contact">Kontak</a></li> -->
-                </ul>
-            </nav>
-        </div>
+        <nav class="container">
+            <div class="logo">Nanoni<span>Corp</span></div>
+            <ul class="nav-links">
+                <li><a href="#hero">Beranda</a></li>
+                <li><a href="#features">Fitur</a></li>
+                <li><a href="#classes">Kelas</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <a href="#contact" class="btn">Daftar Sekarang</a>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container fade-in">
+    <section class="hero" id="hero">
+        <div class="container">
             <h1>Belajar Bahasa Jepang dengan Metode Bayi</h1>
-            <p>Pelajari bahasa Jepang seperti bayi belajar bahasa pertama mereka, dengan alur belajar yang tersutruktur dan dibimbing mentor yang sudah berpengalaman!</p>
-            <a href="#classes" class="btn">Lihat Kelas Nanoni</a>
+            <p>Mulai dari nol tanpa stres – cocok untuk pemula yang ingin cepat paham percakapan sehari-hari!</p>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
+    <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title">Kenapa Memilih Nanoni?</h2>
+            <h2 class="section-title">Fitur Utama</h2>
             <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-baby"></i>
-                    </div>
-                    <h3>Metode Bayi</h3>
-                    <p>Fokus menambah kosa kata, seperti bayi yang tidak pernah belajar tata bahasa. Namun akhirnya bisa berbicara.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <h3>JLPT Focus</h3>
-                    <p>Materi dirancang khusus untuk persiapan ujian JLPT N5 sampai N3. Mengadaptasi pengalaman mentor yang telah lulus JLPT dengan nilai memuaskan.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Komunitas Aktif</h3>
-                    <p>Bergabung dengan grup WhatsApp untuk praktik langsung dengan sesama pembelajar maupun yang sudah lancar kaiwa.</p>
-                </div>
+                <!-- Card Fitur -->
             </div>
         </div>
     </section>
 
-    <!-- Classes Section -->
-    <section id="classes" class="classes">
+    <section class="classes" id="classes">
         <div class="container">
-            <h2 class="section-title">Kelas Nanoni</h2>
+            <h2 class="section-title">JLPT Junbi Booster</h2>
+            <p class="text-center">💬 “Lulus JLPT Bukan Lagi Mimpi – Yuk Boost Bareng Kami!”<br>📅 Pendaftaran dibuka sampai 20 April!<br>📌 Untuk persiapan JLPT N5 – N3 Juli 2025</p>
             <div class="classes-grid">
-                <div class="class-card fade-in">
-<!--                     <div class="class-img">JLPT Junbi Booster</div> -->
-                    <img src="https://github.com/Nanonicorp/nanonicorp/blob/main/Poster%20JLPT%20N3%20(1).png?raw=true" alt="JLPT Junbi Booster" class="class-img">
+                <div class="class-card">
+                    <div class="class-img">JLPT N5</div>
                     <div class="class-content">
-                        <h3>JLPT Junbi Booster</h3>
-                        <p>Kursus intensif 4 minggu, untuk mempersiapkan JLPT dengan metode unik kami.</p>
-                        <div class="price">Rp 150.000 - Rp 350.000</div>
-                        <a href="https://nanonicorp.github.io/JLPT-Junbi-Booster/" class="btn">Daftar Sekarang</a>
+                        <h3>N5: Rp150.000</h3>
+                        <p>✅ Materi lengkap & terstruktur<br>
+                        ✅ Garansi uang kembali jika tidak lulus JLPT<br>
+                        ✅ Website eksklusif untuk hafalan kosakata<br>
+                        ✅ Bimbingan mentor bersertifikat<br>
+                        ✅ Latihan soal & Zoom bareng mentor<br>
+                        📌 Alur 4 minggu: Hari 1–4 soal & kosakata, Hari 5–6 penguatan, Hari 7 Zoom</p>
                     </div>
                 </div>
-                <div class="class-card fade-in">
-                    <div class="class-img">Benkyoukai Reguler</div>
+                <div class="class-card">
+                    <div class="class-img">JLPT N4</div>
                     <div class="class-content">
-                        <h3>Kelas Reguler Benkyoukai</h3>
-                        <p>Kelas rutin untuk level N5-N3 dengan pendekatan komprehensif.</p>
-                        <div class="price">Rp 299.000/bulan</div>
-                        <a href="#" class="btn">Daftar Sekarang</a>
+                        <h3>N4: Rp200.000</h3>
+                        <p>✅ Materi lengkap & terstruktur<br>
+                        ✅ Garansi uang kembali jika tidak lulus JLPT<br>
+                        ✅ Mentor bantu jelaskan soal di grup WA<br>
+                        ✅ Website ringan & fokus hafalan<br>
+                        ✅ Zoom bareng mentor setiap minggu</p>
                     </div>
                 </div>
-                <div class="class-card fade-in">
-                    <div class="class-img">Grup Kaiwa</div>
+                <div class="class-card">
+                    <div class="class-img">JLPT N3</div>
                     <div class="class-content">
-                        <h3>Grup Kaiwa</h3>
-                        <p>Ngobrol bareng senpai tachi yang sudah lancar kaiwa</p>
-                        <div class="price">Gratis</div>
-                        <a href="https://chat.whatsapp.com/GSCeopCFvgo7aw5stQ9x3Y" class="btn">Bergabung Sekarang</a>
+                        <h3>N3: Rp350.000</h3>
+                        <p>✅ Dibimbing mentor yang sudah lulus JLPT N3 dengan nilai AA<br>
+                        ✅ Latihan soal via Google Form + pembahasan<br>
+                        ✅ Sistem mingguan: mining, hafalan, evaluasi Zoom<br>
+                        📌 Daftar N3 hanya jika kamu sudah setara N4</p>
                     </div>
                 </div>
+            </div>
+            <div class="text-center" style="margin-top: 30px;">
+                <a href="https://nanonicorp.github.io/nanonicorp/" class="btn">Daftar Sekarang</a><br>
+                <p style="margin-top: 10px;">📱 Hubungi via WhatsApp: <a href="https://wa.me/6285941855177">085941855177</a></p>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text fade-in">
-                    <h2>Tentang Nanoni</h2>
-                    <p>Nanoni adalah platform belajar bahasa Jepang yang mengadaptasi cara bayi mempelajari bahasa pertama mereka. Bagaimana mereka selalu dikenalkan dengan kata-kata baru setiap hari.</p>
-                    <p>Dengan tim tutor berpengalaman dan metode unik, kami membantu siswa mempersiapkan JLPT sekaligus mengembangkan kemampuan komunikasi sehari-hari.</p>
-<!--                     <a href="#contact" class="btn">Hubungi Kami</a> -->
-                </div>
-                <div class="about-img fade-in">
-                    [Foto Tim/Tutor]
-                </div>
+    <section class="about" id="about">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2>Tentang Kami</h2>
+                <p>NanoniCorp adalah platform belajar bahasa Jepang dengan pendekatan natural layaknya bayi belajar bahasa ibu mereka.</p>
             </div>
+            <div class="about-img">[Ilustrasi Tentang Kami]</div>
         </div>
     </section>
 
-    <!-- Contact Section 
-    <section id="contact" class="contact">
+    <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">Hubungi Kami</h2>
-            <div class="contact-form fade-in">
+            <div class="contact-form">
+                <h2>Kontak Kami</h2>
                 <form>
                     <div class="form-group">
                         <label for="name">Nama</label>
-                        <input type="text" id="name" required>
+                        <input type="text" id="name" name="name">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" name="email">
                     </div>
                     <div class="form-group">
                         <label for="message">Pesan</label>
-                        <textarea id="message" required></textarea>
+                        <textarea id="message" name="message"></textarea>
                     </div>
-                    <button type="submit" class="btn">Kirim Pesan</button>
+                    <button type="submit" class="btn">Kirim</button>
                 </form>
             </div>
         </div>
-    </section> -->
+    </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="logo" style="color: white; margin-bottom: 20px;">Nano<span style="color: var(--accent);">ni</span></div>
-            <ul class="footer-links">
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#classes">Kelas</a></li>
-<!--                 <li><a href="#contact">Kontak</a></li> -->
-            </ul>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/nanoni.id/"><i class="fab fa-instagram"></i></a>
-                <a href="https://chat.whatsapp.com/GSCeopCFvgo7aw5stQ9x3Y"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://www.youtube.com/@desukakundesuka"><i class="fab fa-youtube"></i></a>
-            </div>
-            <p class="copyright">© 2023 Nanoni. All rights reserved.</p>
+        <ul class="footer-links">
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#features">Fitur</a></li>
+            <li><a href="#classes">Kelas</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
+        <p class="copyright">&copy; 2025 NanoniCorp. All rights reserved.</p>
     </footer>
-
-    <script>
-        // Simple animation trigger
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
-            
-            const fadeInObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            fadeElements.forEach(el => {
-                el.style.opacity = 0;
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-                fadeInObserver.observe(el);
-            });
-        });
-
-    // Smooth scroll untuk navigasi
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80, // Sesuaikan dengan tinggi header
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Animasi fade-in
-    document.addEventListener('DOMContentLoaded', function() {
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeInObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        fadeElements.forEach(el => {
-            el.style.opacity = 0;
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-            fadeInObserver.observe(el);
-        });
-    });
-    </script>
 </body>
 </html>
